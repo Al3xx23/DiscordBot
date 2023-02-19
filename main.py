@@ -1,8 +1,8 @@
 import discord
 from discord.ext import commands
 import TOKEN
-import String_methods
-import Python_functions
+import String_methods as sm
+import Python_functions as pf
 
 TOKEN = TOKEN.TOKEN
 
@@ -10,28 +10,22 @@ intents = discord.Intents.default()
 intents.message_content = True
 bot = commands.Bot(command_prefix='>>>', intents=intents)
 
-bot.add_command(String_methods.ascii)
-bot.add_command(String_methods.find)
-bot.add_command(String_methods.capitalize)
-bot.add_command(String_methods.center)
-bot.add_command(String_methods.casefold)
-bot.add_command(String_methods.lower)
-bot.add_command(String_methods.upper)
-bot.add_command(String_methods.endswith)
-bot.add_command(String_methods.encode)
-bot.add_command(String_methods.expandtabs)
+String_methods = [
+    sm.ascii, sm.find, sm.center, sm.casefold, sm.lower, sm.upper, sm.endswith, sm.encode,
+    sm.expandtabs, sm.index, sm.isalnum, sm.isdigit, sm.isdecimal, sm.isidentifier, sm.islower,
+    sm.isupper, sm.partition, sm.replace, sm.lstrip, sm.swapcase, sm.isprintable, sm.istitle,
+    sm.ljust, sm.join, sm.isspace, sm.issuper
+]
+
+Python_functions = [
+    pf.abs, pf.bhelp, pf.credits, pf.pow, pf.print, pf.range, pf.tuple, pf.sum, pf.cls, pf.bool
+]
 
 
-bot.add_command(Python_functions.abs)
-bot.add_command(Python_functions.bhelp)
-bot.add_command(Python_functions.credits)
-bot.add_command(Python_functions.pow)
-bot.add_command(Python_functions.print)
-bot.add_command(Python_functions.range)
-bot.add_command(Python_functions.tuple)
-bot.add_command(Python_functions.sum)
+for x in range(len(String_methods)):
+    bot.add_command(String_methods[x])
 
-#nothing
-#ok
+for i in range(len(Python_functions)):
+    bot.add_command(Python_functions[i])
 
 bot.run(TOKEN)
