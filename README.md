@@ -4,13 +4,11 @@ TIP №1: If you will write something wrong, bot will send error message
 
 TIP №2: Write all atributs first, and after write list/string
 
-TIP №3: If you write something wrong, bot will send error message
+TIP №3: Use ">>>" prefix to use bot
 
-TIP №4: Use ">>>" prefix to use bot
+TIP №4: Write "help" command ( >>>help ) and bot will send all bot command
 
-TIP №5: Write "help" command ( >>>help ) and bot will send all bot command
-
-TIP №6: write prefix with command name TOGETER!
+TIP №5: write prefix with command name TOGETER!
 
 tip: list methods -  WRITE LIST WITHOUT ANY SPACES
 
