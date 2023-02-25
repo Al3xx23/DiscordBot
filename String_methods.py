@@ -1,318 +1,234 @@
-#string metods
+# string metods
 
 import discord
 from discord.ext import commands
-
 
 intents = discord.Intents.default()
 intents.message_content = True
 bot = commands.Bot(command_prefix='>>>', intents=intents)
 
+
 #                                   ___ STRING METODS ___
 
-@bot.command()                          # ascii                № 1
-async def ascii(ctx, s):
-    try:
-        await ctx.send(s.ascii())
-    except Exception as e:
-        print(e)
-
-@bot.command()                          # capitalize           № 2
+@bot.command()  # capitalize           № 1
 async def capitalize(ctx, *args):
-    try:
-        s = ' '.join(args)
-        z = s.capitalize()
-        await ctx.send(z)
-    except Exception as e:
-        await ctx.send(e)
+    s = ' '.join(args)
+    await ctx.send(s.capitalize())
 
-@bot.command()                          # lower                № 3
+
+@bot.command()  # lower                № 2
 async def lower(ctx, s):
-    try:
-        z = s.lower()
-        await ctx.send(z)
-    except Exception as e:
-        await ctx.send(e)
+    await ctx.send(s.lower())
 
 
-@bot.command()                           # upper               № 4
+@bot.command()  # upper               № 3
 async def upper(ctx, s):
-    try:
-        z = s.upper()
-        await ctx.send(z)
-    except Exception as e:
-        await ctx.send(e)
+    await ctx.send(s.upper())
 
-@bot.command()                          # casefold             № 5
+
+@bot.command()  # casefold             № 4
 async def casefold(ctx, s):
-    try:
-        z = s.casefold()
-        await ctx.send(z)
-    except Exception as e:
-        await ctx.send(e)
+    await ctx.send(s.casefold())
 
-@bot.command()                          # center               № 6
+
+@bot.command()  # center               № 5
 async def center(ctx, s, n1: int, n2=' '):
-    try:
-        z = s.center(n1, n2)
-        await ctx.send(z)
-    except Exception as e:
-        await ctx.send(e)
+    await ctx.send(s.center(n1, n2))
 
-@bot.command()                          # encode               № 7
+
+@bot.command()  # encode               № 6
 async def encode(ctx, s):
+    await ctx.send(s.encode())
+
+
+@bot.command()  # endswith             № 7
+async def endswith(ctx, s, x):
+    await ctx.send(s.endswith(x))
+
+
+@bot.command()  # find                 № 8
+async def find(ctx, s, x, start=0, end=-1):
     try:
-        z = s.encode()
-        await ctx.send(z)
+        await ctx.send(s.find(x, start, end))
     except Exception as e:
         await ctx.send(e)
 
-@bot.command()                          # endswith             № 8
-async def endswith(ctx, s, x):
-    z = s.endswith(x)
-    await ctx.send(z)
 
-@bot.command()                          # find                 № 9
-async def find(ctx, s, x, start=0, end=-1):
-    z = s.find(x, start, end)
-    await ctx.send(z)
-
-@bot.command()                          # expandtabs           № 10
+@bot.command()  # expandtabs           № 9
 async def expandtabs(ctx, s, tabsize: int):
     try:
         s1 = s.expandtabs(tabsize)
-    except ValueError as e:
-        await ctx.send(e)
-    else:
         await ctx.send(s1)
+    except Exception as e:
+        await ctx.send(e)
 
-@bot.command()                          # index                № 11
+
+@bot.command()  # index                № 10
 async def index(ctx, s, *args):
-    try:
-        args = ' '.join(args)
-        await ctx.send(args.index(s))
-    except Exception as e:
-        await ctx.send(e)
+    args = ' '.join(args)
+    await ctx.send(args.index(s))
 
-@bot.command()                          # isalnum              № 12
+
+@bot.command()  # isalnum              № 11
 async def isalnum(ctx, s):
-    try:
-        await ctx.send(s.isalnum())
-    except Exception as e:
-        await ctx.send(e)
+    await ctx.send(s.isalnum())
 
-@bot.command()                          # isascii              № 13
+
+@bot.command()  # isascii              № 12
 async def isascii(ctx, s):
-    try:
-        await ctx.send(s.isascii())
-    except Exception as e:
-        await ctx.send(e)
+    await ctx.send(s.isascii())
 
-@bot.command()                          # isdecimal            № 14
+
+@bot.command()  # isdecimal            № 13
 async def isdecimal(ctx, s):
-    try:
-        await ctx.send(s.isdecimal())
-    except Exception as e:
-        await ctx.send(e)
+    await ctx.send(s.isdecimal())
 
-@bot.command()                           # isdigit             № 15
+
+@bot.command()  # isdigit             № 14
 async def isdigit(ctx, s):
-    try:
-        await ctx.send(s.isdigit())
-    except Exception as e:
-        await ctx.send(e)
+    await ctx.send(s.isdigit())
 
-@bot.command()                          # isidentifier         № 16
+
+@bot.command()  # isidentifier         № 15
 async def isidentifier(ctx, s):
-    try:
-        await ctx.send(s.isidentifier())
-    except Exception as e:
-        await ctx.send(e)
+    await ctx.send(s.isidentifier())
 
-@bot.command()                          # islower              № 17
+
+@bot.command()  # islower              № 16
 async def islower(ctx, s):
-    try:
-        await ctx.send(s.islower())
-    except Exception as e:
-        await ctx.send(e)
+    await ctx.send(s.islower())
 
-@bot.command()                          # upper                № 18
+
+@bot.command()  # upper                № 17
 async def isupper(ctx, s):
-    try:
-        await ctx.send(s.isupper())
-    except Exception as e:
-        await ctx.send(e)
+    await ctx.send(s.isupper())
 
-@bot.command()                          # isnumeric            № 19
+
+@bot.command()  # isnumeric            № 18
 async def isnumeric(ctx, s):
-    try:
-        await ctx.send(s.isnumeric())
-    except Exception as e:
-        await ctx.send(e)
+    await ctx.send(s.isnumeric())
 
-@bot.command()                          # isprintable          № 20
+
+@bot.command()  # isprintable          № 19
 async def isprintable(ctx, s):
-    try:
-        await ctx.send(s.isprintable())
-    except Exception as e:
-        await ctx.send(e)
+    await ctx.send(s.isprintable())
 
-@bot.command()                          # isspace               # 21
+
+@bot.command()  # isspace               # 20
 async def isspace(ctx, s):
-    try:
-        await ctx.send(s.isspace())
-    except Exception as e:
-        await ctx.send(e)
+    await ctx.send(s.isspace())
 
-@bot.command()                          # istitle              № 22
+
+@bot.command()  # istitle              № 21
 async def istitle(ctx, s):
-    try:
-        await ctx.send(s.istitle())
-    except Exception as e:
-        await ctx.send(e)
+    await ctx.send(s.istitle())
 
-@bot.command()                          # issuper              № 23
+
+@bot.command()  # issuper              № 22
 async def issuper(ctx, s):
-    try:
-        await ctx.send(s.issuper())
-    except Exception as e:
-        await ctx.send(e)
+    await ctx.send(s.issuper())
 
-@bot.command()                          # partition            № 24
-async def partition(ctx, center, *args):
-    try:
-        s = ' '.join(args)
-        await ctx.send(s.partition(center))
-    except Exception as e:
-        await ctx.send(e)
 
-@bot.command()                          # replace              № 25
+@bot.command()  # partition            № 23
+async def partition(ctx, num, *args):
+    s = ' '.join(args)
+    await ctx.send(s.partition(num))
+
+
+@bot.command()  # replace              № 24
 async def replace(ctx, s1, s2, *args):
-    try:
-        args = ' '.join(args)
-        await ctx.send(args.replace(s1, s2))
-    except Exception as e:
-        await ctx.send(e)
-@bot.command()                          # lstrip               № 26
+    args = ' '.join(args)
+    await ctx.send(args.replace(s1, s2))
+
+
+@bot.command()  # lstrip               № 25
 async def lstrip(ctx, *args):
-    try:
-        s = ' '.join(args)
-        await ctx.send(s.lstrip())
-    except Exception as e:
-        await ctx.send(e)
+    s = ' '.join(args)
+    await ctx.send(s.lstrip())
 
-@bot.command()                          # swapcase             № 27
-async def swapcase(ctx, s):
-    try:
-        await ctx.send(s.swapcase())
-    except Exception as e:
-        await ctx.send(e)
 
-@bot.command()                          # ljust                № 28
+@bot.command()  # swapcase             № 26
+async def swapcase(ctx, *args):
+    s = ' '.join(args)
+    await ctx.send(s.swapcase())
+
+
+@bot.command()  # ljust                № 27
 async def ljust(ctx, s, num: int):
-    try:
-        await ctx.send(s.ljust(num))
-    except Exception as e:
-        await ctx.send(e)
+    await ctx.send(s.ljust(num))
 
-@bot.command()                          # join                 № 29
+
+@bot.command()  # join                 № 30
 async def join(ctx, s1, *args):
-    try:
-        z = s1.join(args)
-        await ctx.send(z)
-    except Exception as e:
-        await ctx.send(e)
+    await ctx.send(s1.join(args))
 
-@bot.command()                          # zfill                № 30
+
+@bot.command()  # zfill                № 31
 async def zfill(ctx, s, num):
-    try:
-        await ctx.send(s.zfill(num))
-    except Exception as e:
-        await ctx.send(e)
+    await ctx.send(s.zfill(num))
 
-@bot.command()                          # splitlines           № 31
+
+@bot.command()  # splitlines           № 32
 async def splitlines(ctx, *args):
-    try:
-        s = ' '.join(args)
-        await ctx.send(s.splitlines())
-    except Exception as e:
-        await ctx.send(e)
+    s = ' '.join(args)
+    await ctx.send(s.splitlines())
 
-@bot.command()                          # rstrip               № 32
+
+@bot.command()  # rstrip               № 33
 async def rstrip(ctx, *args):
-    try:
-        s = ' '.join(args)
-        await ctx.send(s.rstrip())
-    except Exception as e:
-        await ctx.send(e)
+    s = ' '.join(args)
+    await ctx.send(s.rstrip())
 
-@bot.command()                          # rsplit               № 33
+
+@bot.command()  # rsplit               № 34
 async def rsplit(ctx, *args):
-    try:
-        s = ' '.join(args)
-        await ctx.send(s.rsplit)
-    except Exception as e:
-        await ctx.send(e)
+    s = ' '.join(args)
+    await ctx.send(s.rsplit)
 
-@bot.command()                          # rpartition           № 34
+
+@bot.command()  # rpartition           № 35
 async def rpartition(ctx, value, *args):
-    try:
-        args = ' '.join(args)
-        await ctx.send(args.rpartition(value))
-    except Exception as e:
-        await ctx.send(e)
+    args = ' '.join(args)
+    await ctx.send(args.rpartition(value))
 
-@bot.command()                          # split                № 35
+
+@bot.command()  # split                № 36
 async def split(ctx, value, *args):
-    try:
-        args = ' '.join(args)
-        await ctx.send(args.split(value))
-    except Exception as e:
-        await ctx.send(e)
+    args = ' '.join(args)
+    await ctx.send(args.split(value))
 
-@bot.command()                          # strip                № 36
+
+@bot.command()  # strip                № 37
 async def strip(ctx, *args):
-    try:
-        s = ' '.join(args)
-        await ctx.send(s.strip)
-    except Exception as e:
-        await ctx.send(e)
+    s = ' '.join(args)
+    await ctx.send(s.strip)
 
-@bot.command()                          # rjust               № 37
+
+@bot.command()  # rjust               № 38
 async def rjust(ctx, num, *args):
-    try:
-        s = ' '.join(args)
-        await ctx.send(s.rjust(num))
-    except Exception as e:
-        await ctx.send(e)
+    s = ' '.join(args)
+    await ctx.send(s.rjust(num))
 
-@bot.command()                          # rindex              № 38
+
+@bot.command()  # rindex              № 39
 async def rindex(ctx, ind, *args):
-    try:
-        s = ' '.join(args)
-        await ctx.send(s.rindex(ind))
-    except Exception as e:
-        await ctx.send(e)
+    s = ' '.join(args)
+    await ctx.send(s.rindex(ind))
 
 
-@bot.command()                          # count              № 39
-async def count(ctx, s, s1):
-    try:
-        await ctx.send(s1.count(s))
-    except Exception as e:
-        await ctx.send(e)
+@bot.command()  # count              № 40
+async def count(ctx, s, *args):
+    s1 = ' '.join(args)
+    await ctx.send(s1.count(s))
 
 
-@bot.command()                         # startswith          № 40
-async def startswith(ctx, start, s):
-    try:
-        await ctx.send(s.startswith(start))
-    except Exception as e:
-        await ctx.send(e)
+@bot.command()  # startswith          № 41
+async def startswith(ctx, start, *args):
+    s = ' '.join(args)
+    await ctx.send(s.startswith(start))
 
-@bot.command()                         # isalpha             № 41
-async def isalpha(ctx, s):
-    try:
-        await ctx.send(s.isalpha())
-    except Exception as e:
-        await ctx.send(e)
+
+@bot.command()  # isalpha             № 42
+async def isalpha(ctx, *args):
+    s = ' '.join(args)
+    await ctx.send(s.isalpha())
